@@ -1,24 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Exercises for Stimulus 
 
-Things you may want to cover:
+https://www.theodinproject.com/lessons/ruby-on-rails-stimulus
 
-* Ruby version
+- Write some HTML that uses the example controller in app/javascript/controllers/hello_controller.js
 
-* System dependencies
+- Create your own toggle controller and use it in your view. It should be able to show/hide elements upon clicking a button.
 
-* Configuration
+- Make sure your toggle controller is reusable. Try to make it do the following things:
+    - Clicking a button will show another element (like a dropdown menu)
+    - Clicking an element will hide the clicked element and show another
+    - Clicking a checkbox will highlight the element containing the checkbox
 
-* Database creation
+- Write a controller for text inputs with a limited length. Warn a user when they are close or over the maximum character count (imagine a user writing a tweet which has a maximum length of 280 characters)
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Project: In a new Rails app, create a car model that :has_many variants; make up some attributes. Then create a form to edit a car in which you can dynamically add more variants using :accepts_nested_attributes_for and a Stimulus controller (that adds the form fields you need for a new variant entry). Bonus points for destroying existing records when submitting.

@@ -1,0 +1,17 @@
+<div>
+  <h1 class="font-bold text-4xl">Pages#homepage</h1>
+  <p>Find me in app/views/pages/homepage.html.erb</p>
+
+  
+  <div data-controller="hello" data-hello-hidden-class="hidden" data-hello-change-class="text-xl text-red-500" >
+    
+    <%= button_tag "Add me", data: { action: 'click->hello#add'},  class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+    <%= button_tag "Remove me", data: { action: 'click->hello#remove'},  class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+    <%= button_tag "Toggle me", data: { action: 'click->hello#toggle'},  class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+    <div data-hello-target="text"> 
+      <p> This Text can be Toggle  </p>
+    </div>
+
+  </div>
+
+</div>

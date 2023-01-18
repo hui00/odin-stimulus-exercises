@@ -85,3 +85,13 @@ group :development, :test do
 end
 gem "dotenv-rails"
 gem "devise"
+
+group :development, :test do
+  gem "awesome_print"
+  gem "pry"
+  gem "pry-byebug"
+  gem "pry-doc"
+  gem "pry-rails"
+  gem "pry-rescue"
+  gem "pry-theme"
+end

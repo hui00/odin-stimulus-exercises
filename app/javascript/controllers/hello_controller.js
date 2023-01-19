@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
 
-  static classes = ["hidden", "change"];
+  static classes = ["hidden", "change", "hightlight"]; 
   static targets = ["text", "dropdown", "hiddenelement"];
   connect() {}
   toggle() {
@@ -21,8 +21,14 @@ export default class extends Controller {
   }
 
   hideandshow(event) {
-    // hide option 1 and show option 4
-    event.target.classList.add(this.hiddenClass);
+    let target = event.target.closest('div');
+    target.classList.add(this.hiddenClass);
     this.hiddenelementTarget.classList.remove(this.hiddenClass);  
+  }
+  highlight(event) {
+    console.log(event.target);
+    let target = event.target.closest('div');
+    console.log(target);
+    target.classList.add(...this.hightlightClasses);
   }
 }

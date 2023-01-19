@@ -1,6 +1,7 @@
-<div> <h1 class="font-bold text-4xl">Pages#homepage</h1>
+<div>
+  <h1 class="font-bold text-4xl">Pages#homepage</h1>
   <p>Find me in app/views/pages/homepage.html.erb</p>
-  <div data-controller="hello" data-hello-hidden-class="hidden" data-hello-change-class="text-xl text-red-500" >
+  <div data-controller="hello" data-hello-hidden-class="hidden" data-hello-change-class="text-xl text-red-500" data-hello-hightlight-class="border-4 border-red"  >
     <%= button_tag "Add me", data: { action: 'click->hello#add'},  class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
     <%= button_tag "Remove me", data: { action: 'click->hello#remove'},  class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
     <%= button_tag "Toggle me", data: { action: 'click->hello#toggle'},  class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
@@ -17,7 +18,10 @@
       <ul data-hello-target="dropdown" class="absolute hidden bg-white rounded border 
     border-gray-400 py-2 px-4 text-gray-700 mt-1 z-50
     divide-y divide-gray-400 right-0 w-48">
-        <li data-action="click->hello#hideandshow" class="block px-2 py-2 text-gray-800 hover:bg-gray-100">Option 1</li>
+        <div class="flex flex-row align-center justify-center">
+          <li data-action="click->hello#hideandshow"  class="flex-1 block px-2 py-2 text-gray-800 hover:bg-gray-100">Option 1</li>
+          <input data-action="click->hello#highlight"  data-action="click->hello#hideandshow" type="checkbox" class="form-checkbox text-indigo-600 bg-gray-100 focus:shadow-outline-indigo focus:border-indigo-500 self-center" />
+        </div>
         <li class="block px-2 py-2 text-gray-800 hover:bg-gray-100">Option 2</li>
         <li class="block px-2 py-2 text-gray-800 hover:bg-gray-100">Option 3</li>
         <li data-hello-target="hiddenelement" class="block px-2 py-2 text-gray-800 hover:bg-gray-100 hidden">Option 4</li>

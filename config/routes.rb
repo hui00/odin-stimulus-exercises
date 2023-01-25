@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  get 'pages/homepage'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :pages, only: [:new, :create, :destroy, :homepage] do
+    collection do
+      get :color
+    end
+  end
 
-  # Defines the root path route ("/")
   root "pages#homepage"
 end

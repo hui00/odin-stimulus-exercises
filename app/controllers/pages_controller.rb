@@ -3,7 +3,7 @@ class PagesController < ApplicationController
     @car = Car.new
     @car.variants.build
 
-    # get all different models from the car 
+    # get all different models from the car
     @models = Car.all.map(&:model).uniq
     @colors = Car.all.map(&:color).uniq
   end
@@ -21,9 +21,13 @@ class PagesController < ApplicationController
     end
   end
 
-  def color 
-    params = params[:color]
-
+  def color
+    brand = params[:brand]
+    @colors = Car.where(model: brand).map(&:color).uniq
+    @target = params[:target]
+    respond_to do |format|
+      format.turbo_stream
+    end
   end
 
   def destroy

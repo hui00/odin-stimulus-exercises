@@ -8,16 +8,15 @@ class PagesController < ApplicationController
     @colors = Car.all.map(&:color).uniq
   end
 
-  def new
-    @car = Car.new
-  end
-
   def create
     @car = Car.new(car_params)
+    @car.variants.build(variant_params)
+    @models = Car.all.map(&:model).uniq
     if @car.save
-      redirect_to @car
+      redirect_to root_path
     else
-      render :new
+      puts(@car.errors.full_messages)
+      render :homepage
     end
   end
 
@@ -34,5 +33,17 @@ class PagesController < ApplicationController
     @car = Car.find(params[:id])
     @car.destroy
     redirect_to root_path
+  end
+
+  private
+
+  def car_params
+    params.require(:car).permit(:model, :color, :year)
+  end
+
+  private
+
+  def variant_params
+    params.require(:variants_attributes).permit(:fuel_type, :transmission)
   end
 end

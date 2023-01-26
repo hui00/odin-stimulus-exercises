@@ -36,18 +36,19 @@
     <div data-controller="car-selection">
       <%= form_with model: @car, url: pages_path, method: :post do |form| %>
         <%= form.label :model %>
-              <%= form.select :country, @models , { prompt: "Select a country" }, { class: '', data: { action: "change->car-selection#selectmodel" } } %>
-
-        <%# <%= form.select :brand, ["Honda CR-V", "Ford F150", "Toyota Prius","Buick Regal", "Honda CR-V",  "Lincoln Navigator", "Dodge Ram"], data: { action: "change->car-selection#toggle" }  %1> %>
-        <%# <%= form.select :brand,["hallo", "dafdaf"] , {data: { action: "change->car-selection#toggle" } } %1> %>
-
-
-        <%# <div></div> %>
+        <%= form.select :model, @models , { prompt: "Select a country" }, { class: '', data: { action: "change->car-selection#selectmodel" } } %>
         <%= form.label :color %>
         <%= form.select :color, [], {}, {class: "", data: {car_selection_target: "colorSelect"} } %>
-        <%# <%= fields_for :variants do |car_variant| %1> %>
-        <%#   <%= render "variant_form", car_variant: %1> %>
-        <%# <% end %1> %>
+        <%= form.label :year %>
+        <%= form.number_field :year, in: 1901..2021 %>
+        <%= fields_for :variants_attributes do |v| %>
+            <%= v.check_box :_destroy %>
+            <%= v.label "Fuel Type" %>
+            <%= v.select :fuel_type,["petrol", "diesel", "electric"]   %>
+            <%= v.label "Transmission" %>
+            <%= v.select :transmission, ["manual", "automatic"]%>
+          <%# <%= render "variant_form", car_variant: %1> %>
+        <% end %>
         <%= form.submit %>
       <% end %>
     </div>
